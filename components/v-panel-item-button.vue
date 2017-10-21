@@ -7,9 +7,9 @@
 <style src="css/v-panel-item-button.scss"></style>
 
 <script>
-  export default {
-    props: {
-      props: Object
-    }
+export default {
+  props: {
+    props: Object
   }
+};
 </script>

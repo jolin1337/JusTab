@@ -6,27 +6,26 @@
 </template>
 
 <script>
-  import { mapActions, mapState } from 'vuex';
-  import vInput from 'components/v-input';
+import { mapState } from 'vuex';
+import vInput from 'components/v-input';
 
-  export default {
-    components: {
-      vInput
-    },
-    computed: {
-      ...mapState({
-        services: 'services',
-        service (state) {
-          return state.services.find(s => s.id === 8);
-        }
-      })
-    },
-
-    methods: {
-      onChange (name, newVal) {
-        this.saveData(this.service.id, name, newVal)
+export default {
+  components: {
+    vInput
+  },
+  computed: {
+    ...mapState({
+      services: 'services',
+      service (state) {
+        return state.services.find(s => s.id === 8);
       }
-    },
-  }
-</script>
+    })
+  },
 
+  methods: {
+    onChange (name, newVal) {
+      this.saveData(this.service.id, name, newVal);
+    }
+  },
+};
+</script>

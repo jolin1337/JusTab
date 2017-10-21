@@ -15,7 +15,7 @@ export default {
         .then(this.couchPotatoImages)
         .then(this.couchPotatoComponents)
         .catch((error) => {
-          if (error) console.error(error);
+          if (error) console.error(error); // eslint-disable-line no-console
           localStorage.setItem('couchPotatoError', true);
         });
     },

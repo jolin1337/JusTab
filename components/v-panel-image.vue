@@ -18,23 +18,23 @@
 <style src="css/v-panel-image.scss"></style>
 
 <script>
-  export default {
-    computed: {
-      imageObject () {
-        return {
-          src: this.props.image,
-          error: require('img/dribbble_fallback.svg'),
-          loading: require('img/dribbble_fallback.svg')
-        }
-      },
-
-      widePanel () {
-        return this.props.panelWidth > 600;
-      }
+export default {
+  computed: {
+    imageObject () {
+      return {
+        src: this.props.image,
+        error: require('img/dribbble_fallback.svg'),
+        loading: require('img/dribbble_fallback.svg')
+      };
     },
 
-    props: {
-      props: Object
+    widePanel () {
+      return this.props.panelWidth > 600;
     }
+  },
+
+  props: {
+    props: Object
   }
+};
 </script>

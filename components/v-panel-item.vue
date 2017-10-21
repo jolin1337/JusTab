@@ -20,37 +20,37 @@
 <style src="css/v-panel-item.scss"></style>
 
 <script>
-  import dynamicImportComponent from 'modules/dynamic-import-component';
-  import vPanelItemContent from 'components/v-panel-item-content';
+import dynamicImportComponent from 'modules/dynamic-import-component';
+import vPanelItemContent from 'components/v-panel-item-content';
 
-  export default {
-    components: {
-      vPanelItemContent,
-      vPanelItemButton: dynamicImportComponent('v-panel-item-button')
-    },
+export default {
+  components: {
+    vPanelItemContent,
+    vPanelItemButton: dynamicImportComponent('v-panel-item-button')
+  },
 
-    props: {
-      props: Object
-    },
+  props: {
+    props: Object
+  },
 
-    data () {
-      return {
-        expanded: false
-      }
-    },
+  data () {
+    return {
+      expanded: false
+    };
+  },
 
-    computed: {
-      hasCollapse () {
-        return !!(this.props.collapseText || this.props.components)
-      }
-    },
+  computed: {
+    hasCollapse () {
+      return !!(this.props.collapseText || this.props.components);
+    }
+  },
 
-    methods: {
-      expandItem () {
-        if (this.hasCollapse) {
-          this.expanded = !this.expanded
-        }
+  methods: {
+    expandItem () {
+      if (this.hasCollapse) {
+        this.expanded = !this.expanded;
       }
     }
   }
+};
 </script>

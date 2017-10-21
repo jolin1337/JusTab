@@ -10,16 +10,16 @@
 <style src="css/v-page-header.scss"></style>
 
 <script>
-  export default {
-    props: {
-      title: String,
-      color: String
-    },
+export default {
+  props: {
+    title: String,
+    color: String
+  },
 
-    methods: {
-      onMenuClick () {
-        this.$emit('toggle');
-      }
+  methods: {
+    onMenuClick () {
+      this.$emit('toggle');
     }
   }
+};
 </script>

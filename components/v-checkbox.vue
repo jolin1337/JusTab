@@ -13,18 +13,18 @@
 <style src="css/v-checkbox.scss"></style>
 
 <script>
-  export default {
-    props: {
-      name: String,
-      value: [String, Boolean],
-      label: String,
-      checked: Boolean
-    },
+export default {
+  props: {
+    name: String,
+    value: [String, Boolean],
+    label: String,
+    checked: Boolean
+  },
 
-    methods: {
-      onChange () {
-        this.$emit('change', this.name, this.value);
-      }
+  methods: {
+    onChange () {
+      this.$emit('change', this.name, this.value);
     }
   }
+};
 </script>

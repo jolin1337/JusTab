@@ -37,16 +37,16 @@
 <style src="css/options/v-options-support.scss"></style>
 
 <script>
-  import vButton from 'components/v-button';
+import vButton from 'components/v-button';
 
-  export default {
-    components: {
-      vButton
-    },
-    data () {
-      return {
-        paypalImage: require('img/paypal.svg')
-      }
-    }
+export default {
+  components: {
+    vButton
+  },
+  data () {
+    return {
+      paypalImage: require('img/paypal.svg')
+    };
   }
+};
 </script>

@@ -8,21 +8,19 @@
 <style src="css/v-tab.scss"></style>
 
 <script>
-  import { mapState, mapGetters } from 'vuex';
-  import dynamicImportComponent from 'modules/dynamic-import-component';
-  import vPanel from 'components/v-panel';
-  import vFab from 'components/v-fab';
+import { mapState, mapGetters } from 'vuex';
+import vPanel from 'components/v-panel';
+import vFab from 'components/v-fab';
 
-  export default {
-    name: 'v-tab',
-    components: {
-      vPanel,
-      vFab
-    },
-    computed: {
-      ...mapState([ 'services' ]),
-      ...mapGetters([ 'activeServices' ])
-    }
+export default {
+  name: 'v-tab',
+  components: {
+    vPanel,
+    vFab
+  },
+  computed: {
+    ...mapState([ 'services' ]),
+    ...mapGetters([ 'activeServices' ])
   }
+};
 </script>
-

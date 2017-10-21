@@ -13,22 +13,22 @@
 <style src="css/v-panel-error.scss"></style>
 
 <script>
-  import vButton from 'components/v-button';
+import vButton from 'components/v-button';
 
-  export default {
-    components: {
-      vButton
-    },
+export default {
+  components: {
+    vButton
+  },
 
-    props: {
-      serviceName: String,
-      serviceId: Number
-    },
+  props: {
+    serviceName: String,
+    serviceId: Number
+  },
 
-    methods: {
-      triggerRefresh () {
-        this.$emit('refresh');
-      }
+  methods: {
+    triggerRefresh () {
+      this.$emit('refresh');
     }
   }
+};
 </script>

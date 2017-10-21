@@ -15,69 +15,68 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
-  import vGoogleCalendar from 'js/background/v-google-calendar';
-  import vCheckbox from 'components/v-checkbox';
-  import vInput from 'components/v-input';
+import { mapState } from 'vuex';
+import vGoogleCalendar from 'js/background/v-google-calendar';
+import vCheckbox from 'components/v-checkbox';
+import vInput from 'components/v-input';
 
-  export default {
-    mixins: [
-      vGoogleCalendar
-    ],
-    components: {
-      vCheckbox,
-      vInput
-    },
-    computed: {
-      ...mapState({
-        services: 'services',
-        service (state) {
-          return state.services.find((s) => s.id === 1);
-        }
-      }),
-      activeCalendars () {
-        if (!this.service) return [];
-        return this.service.calendars || [];
+export default {
+  mixins: [
+    vGoogleCalendar
+  ],
+  components: {
+    vCheckbox,
+    vInput
+  },
+  computed: {
+    ...mapState({
+      services: 'services',
+      service (state) {
+        return state.services.find((s) => s.id === 1);
       }
-    },
-
-    data () {
-      return {
-        calendars: [],
-        error: null
-      }
-    },
-
-    methods: {
-      onCalendarChange (name, value) {
-        let newCalendars = [].concat(this.activeCalendars);
-        if (this.activeCalendars.includes(value)) {
-          let index = newCalendars.indexOf(value);
-          newCalendars.splice(index, 1);
-        } else {
-          newCalendars.push(value);
-        }
-        this.saveData(this.service.id, 'googleCalendarCalendars', newCalendars);
-      },
-      checkedCalendar (id) {
-        if (!this.service) return false;
-        return this.activeCalendars.includes(id);
-      },
-      onChange (name, newVal) {
-        this.saveData(this.service.id, name, newVal)
-      }
-    },
-
-    mounted () {
-      this.googleCalendersList()
-        .then((calendars) => {
-          this.calendars = calendars;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.error = error
-        });
+    }),
+    activeCalendars () {
+      if (!this.service) return [];
+      return this.service.calendars || [];
     }
-  }
-</script>
+  },
 
+  data () {
+    return {
+      calendars: [],
+      error: null
+    };
+  },
+
+  methods: {
+    onCalendarChange (name, value) {
+      let newCalendars = [].concat(this.activeCalendars);
+      if (this.activeCalendars.includes(value)) {
+        let index = newCalendars.indexOf(value);
+        newCalendars.splice(index, 1);
+      } else {
+        newCalendars.push(value);
+      }
+      this.saveData(this.service.id, 'googleCalendarCalendars', newCalendars);
+    },
+    checkedCalendar (id) {
+      if (!this.service) return false;
+      return this.activeCalendars.includes(id);
+    },
+    onChange (name, newVal) {
+      this.saveData(this.service.id, name, newVal);
+    }
+  },
+
+  mounted () {
+    this.googleCalendersList()
+      .then((calendars) => {
+        this.calendars = calendars;
+      })
+      .catch((error) => {
+        console.log(error); // eslint-disable-line no-console
+        this.error = error;
+      });
+  }
+};
+</script>

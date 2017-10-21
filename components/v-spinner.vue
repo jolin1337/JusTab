@@ -9,35 +9,35 @@
 <style src="css/v-spinner.scss"></style>
 
 <script>
-  export default {
-    props: {
-      color: {
-        type: String,
-        default: '#FFFFFF'
-      },
-      width: {
-        type: Number,
-        default: 28
-      },
-      border: {
-        type: Number,
-        default: 2
-      }
+export default {
+  props: {
+    color: {
+      type: String,
+      default: '#FFFFFF'
     },
+    width: {
+      type: Number,
+      default: 28
+    },
+    border: {
+      type: Number,
+      default: 2
+    }
+  },
 
-    computed: {
-      spinnerStyle() {
-        return {
-          width: this.width + 'px',
-        }
-      },
-      circleStyle() {
-        return {
-          'stroke-width': this.border,
-          stroke: this.color
-        }
-      }
+  computed: {
+    spinnerStyle() {
+      return {
+        width: this.width + 'px',
+      };
+    },
+    circleStyle() {
+      return {
+        'stroke-width': this.border,
+        stroke: this.color
+      };
     }
   }
+};
 </script>
 

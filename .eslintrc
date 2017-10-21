@@ -1,5 +1,6 @@
 {
     "parserOptions": {
+        "parser": "babel-eslint",
         "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
@@ -9,16 +10,13 @@
     "globals": {
         "chrome": true,
         "environment": true,
-        "it": true,
-        "describe": true,
         "expect": true
     },
-    "rules": {
-        "indent": [2, 2],
-        "quotes": [2, "single"],
-        "linebreak-style": [2, "unix"],
-        "semi": [2, "always"]
+    "env": {
+      "node": true,
+      "browser": true,
+      "es6": true,
+      "mocha": true
     },
-    "env": {"node": true, "browser": true, "es6": true},
     "extends": ["eslint:recommended", "plugin:vue/base"]
 }

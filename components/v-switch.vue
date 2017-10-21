@@ -10,16 +10,16 @@
 <style src="css/v-switch.scss"></style>
 
 <script>
-  export default {
-    props: {
-      name: String,
-      value: Boolean
-    },
+export default {
+  props: {
+    name: String,
+    value: Boolean
+  },
 
-    methods: {
-      toggleService () {
-        this.$emit('input', this.name, !this.value);
-      }
+  methods: {
+    toggleService () {
+      this.$emit('input', this.name, !this.value);
     }
   }
+};
 </script>

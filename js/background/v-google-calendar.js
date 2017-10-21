@@ -19,7 +19,7 @@ export default {
         .then(this.getEvents)
         .then(this.googleCalendarComponents)
         .catch((error) => {
-          if (error) console.error(error);
+          if (error) console.error(error); // eslint-disable-line no-console
           localStorage.setItem('googleCalendarError', true);
         });
     },

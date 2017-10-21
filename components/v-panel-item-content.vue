@@ -26,14 +26,14 @@
 <style src="css/v-panel-item-content.scss"></style>
 
 <script>
-  export default {
-    props: {
-      title: String,
-      subtitle: String,
-      subtitleUrl: String,
-      extraTitle: String,
-      hasCollapse: Boolean,
-      image: [String, Object]
-    }
+export default {
+  props: {
+    title: String,
+    subtitle: String,
+    subtitleUrl: String,
+    extraTitle: String,
+    hasCollapse: Boolean,
+    image: [String, Object]
   }
+};
 </script>

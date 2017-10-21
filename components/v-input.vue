@@ -11,27 +11,27 @@
 <style src="css/v-input.scss"></style>
 
 <script>
-  export default {
-    props: {
-      name: String,
-      type: String,
-      label: String,
-      value: [String, Number]
-    },
+export default {
+  props: {
+    name: String,
+    type: String,
+    label: String,
+    value: [String, Number]
+  },
 
-    data () {
-      return {
-        changeValue: this.value,
-      }
-    },
+  data () {
+    return {
+      changeValue: this.value,
+    };
+  },
 
-    methods: {
-      onInput () {
-        this.$emit('input', this.name, this.changeValue);
-      },
-      onChange () {
-        this.$emit('change', this.name, this.changeValue);
-      }
+  methods: {
+    onInput () {
+      this.$emit('input', this.name, this.changeValue);
+    },
+    onChange () {
+      this.$emit('change', this.name, this.changeValue);
     }
   }
+};
 </script>

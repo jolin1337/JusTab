@@ -23,68 +23,68 @@
 <style src="css/v-panel-header.scss"></style>
 
 <script>
-  import dynamicImportComponent from 'modules/dynamic-import-component';
+import dynamicImportComponent from 'modules/dynamic-import-component';
 
-  export default {
-    components: {
-      vSpinner: dynamicImportComponent('v-spinner')
-    },
-    props: {
-      scrollTop: Number,
-      service: Object,
-      loading: Boolean
-    },
-    data () {
-      return {
-        panelHeaderStyling: {
-          height: '128px'
-        },
-        background2ScrollStyling: {
-          opacity: 1,
-          display: 'block'
-        },
-        foregroundTopStyling: {
-          height: '64px',
-          opacity: 1,
-          display: 'block'
-        }
-      }
-    },
-    watch: {
-      scrollTop (newVal) {
-        let opacity = 1-(newVal*(1/64));;
-        if (newVal < 64) {
-          this.panelHeaderStyling.height = 128 - newVal + 'px';
-          this.foregroundTopStyling.height = 64 - newVal + 'px';
-          this.foregroundTopStyling.opacity = opacity;
-          this.background2ScrollStyling.opacity = opacity
-          this.foregroundTopStyling.display = 'block';
-          this.background2ScrollStyling.display = 'block';
-        } else {
-          this.panelHeaderStyling.height = 64 + 'px';
-          this.foregroundTopStyling.height = 0 + 'px';
-          this.foregroundTopStyling.display = 'none';
-          this.background2ScrollStyling.display = 'none';
-        }
-      }
-    },
-    computed: {
-      background1Styling () {
-        return {
-          'background-color': this.service.color
-        }
+export default {
+  components: {
+    vSpinner: dynamicImportComponent('v-spinner')
+  },
+  props: {
+    scrollTop: Number,
+    service: Object,
+    loading: Boolean
+  },
+  data () {
+    return {
+      panelHeaderStyling: {
+        height: '128px'
       },
-      background2Styling () {
-        return Object.assign({
-          'background-color': this.service.color,
-          'background-image': 'url(' + this.service.logo + ')',
-        }, this.background2ScrollStyling);
+      background2ScrollStyling: {
+        opacity: 1,
+        display: 'block'
+      },
+      foregroundTopStyling: {
+        height: '64px',
+        opacity: 1,
+        display: 'block'
       }
-    },
-    methods: {
-      triggerRefresh () {
-        this.$emit('refresh');
+    };
+  },
+  watch: {
+    scrollTop (newVal) {
+      let opacity = 1-(newVal*(1/64));
+      if (newVal < 64) {
+        this.panelHeaderStyling.height = 128 - newVal + 'px';
+        this.foregroundTopStyling.height = 64 - newVal + 'px';
+        this.foregroundTopStyling.opacity = opacity;
+        this.background2ScrollStyling.opacity = opacity;
+        this.foregroundTopStyling.display = 'block';
+        this.background2ScrollStyling.display = 'block';
+      } else {
+        this.panelHeaderStyling.height = 64 + 'px';
+        this.foregroundTopStyling.height = 0 + 'px';
+        this.foregroundTopStyling.display = 'none';
+        this.background2ScrollStyling.display = 'none';
       }
     }
+  },
+  computed: {
+    background1Styling () {
+      return {
+        'background-color': this.service.color
+      };
+    },
+    background2Styling () {
+      return Object.assign({
+        'background-color': this.service.color,
+        'background-image': 'url(' + this.service.logo + ')',
+      }, this.background2ScrollStyling);
+    }
+  },
+  methods: {
+    triggerRefresh () {
+      this.$emit('refresh');
+    }
   }
+};
 </script>

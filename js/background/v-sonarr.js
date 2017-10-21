@@ -18,7 +18,7 @@ export default {
         .then(this.sonarrImages)
         .then(this.sonarrComponents)
         .catch((error) => {
-          console.error(error);
+          console.error(error); // eslint-disable-line no-console
           localStorage.setItem('sonarrError', true);
         });
     },

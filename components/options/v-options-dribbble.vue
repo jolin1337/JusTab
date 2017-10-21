@@ -8,36 +8,35 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
-  import vInput from 'components/v-input';
-  import vCheckbox from 'components/v-checkbox';
+import { mapState } from 'vuex';
+import vInput from 'components/v-input';
+import vCheckbox from 'components/v-checkbox';
 
-  export default {
-    components: {
-      vInput,
-      vCheckbox
-    },
-    computed: {
-      ...mapState({
-        services: 'services',
-        service (state) {
-          return state.services.find(s => s.id === 10);
-        }
-      })
-    },
-
-    methods: {
-      onChange (name, newVal) {
-        this.saveData(this.service.id, name, newVal)
-      },
-      onCheckboxChange (name, value) {
-        if (name === 'dribbbleGifs') {
-          this.saveData(this.service.id, name, !this.service.gifs);
-        } else if (name === 'dribbbleSmallImages') {
-          this.saveData(this.service.id, !this.service.smallImages);
-        }
+export default {
+  components: {
+    vInput,
+    vCheckbox
+  },
+  computed: {
+    ...mapState({
+      services: 'services',
+      service (state) {
+        return state.services.find(s => s.id === 10);
       }
-    },
-  }
-</script>
+    })
+  },
 
+  methods: {
+    onChange (name, newVal) {
+      this.saveData(this.service.id, name, newVal);
+    },
+    onCheckboxChange (name) {
+      if (name === 'dribbbleGifs') {
+        this.saveData(this.service.id, name, !this.service.gifs);
+      } else if (name === 'dribbbleSmallImages') {
+        this.saveData(this.service.id, !this.service.smallImages);
+      }
+    }
+  },
+};
+</script>

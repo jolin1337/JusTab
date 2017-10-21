@@ -7,16 +7,16 @@
 <style src="css/v-fab.scss"></style>
 
 <script>
-  export default {
-    props: {
-      url: String,
-      icon: String
-    },
+export default {
+  props: {
+    url: String,
+    icon: String
+  },
 
-    computed: {
-      iconClass () {
-        return `${this.icon}-icon`;
-      }
+  computed: {
+    iconClass () {
+      return `${this.icon}-icon`;
     }
   }
+};
 </script>
