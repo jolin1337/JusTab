@@ -8,8 +8,16 @@ export default {
       return this.services.find(s => s.id === 3);
     }
   },
+
+  data () {
+    return {
+      couchPotatoPage: 1
+    };
+  },
+
   methods: {
-    couchPotato () {
+    couchPotato (page) {
+      this.couchPotatoPage = page || this.couchPotatoPage;
       localStorage.setItem('couchPotatoError', false);
       return this.couchpotatoMovies()
         .then(this.couchPotatoImages)
@@ -21,11 +29,12 @@ export default {
     },
 
     couchpotatoMovies () {
-      var apiUrls = [
+      const wantedAmount = this.couchPotatoService.perPage * this.couchPotatoPage;
+      const apiUrls = [
         `${this.couchPotatoService.apiUrl}/movie.list/?release_status=snatched,downloaded,available`,
-        `${this.couchPotatoService.apiUrl}/movie.list/?status=active&limit_offset=25`
+        `${this.couchPotatoService.apiUrl}/movie.list/?status=active&limit_offset=${wantedAmount}`
       ];
-      var promises = apiUrls.map(apiUrl => ajax('GET', apiUrl));
+      const promises = apiUrls.map(apiUrl => ajax('GET', apiUrl));
       return Promise.all(promises);
     },
 
