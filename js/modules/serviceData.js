@@ -205,6 +205,7 @@ export let reddit = function() {
       nsfw: typeof items.redditNsfw === 'boolean' ? items.redditNsfw : false,
       sorting: items.redditSorting || 'Hot',
       actions: ['openUnread'],
+      perPage: 25,
       loadMore: true
     };
   });
@@ -230,8 +231,7 @@ export let nzbget = function() {
       refresh: parseFloat(items.nzbgetRefresh) || 15,
       components: localStorage.nzbgetComponents,
       actions: [],
-      loadMore: true,
-      perPage: 25
+      loadMore: false
     };
 
     data = Object.assign(data, apiUrl(data));
@@ -284,8 +284,7 @@ export let transmission = function() {
       panelWidth: parseFloat(items.transmissionWidth) || 400,
       components: localStorage.transmissionComponents,
       actions: [],
-      loadMore: true,
-      perPage: 25
+      loadMore: false
     };
 
     data = Object.assign(data, apiUrl(data));
