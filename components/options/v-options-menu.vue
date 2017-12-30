@@ -5,6 +5,10 @@
       {{ service.name }}
       <v-switch @input="onInput(service, $event)" :value="service.active" :service-id="service.id" :name="service.functionName + 'Active'" class="options-menu--switch"></v-switch>
     </router-link>
+    <div class="options-menu--link ripple">
+      Static start page
+      <v-switch @input="toggleStaticPage()" :value="isStaticStartPage" name="isStaticStartPage" class="options-menu--switch"></v-switch>
+    </div>
     <router-link to="/support" class="options-menu--link options-menu--support">
       Support
     </router-link>
@@ -14,7 +18,8 @@
 <style src="css/options/v-options-menu.scss"></style>
 
 <script>
-  import { mapState, mapActions, mapGetters } from 'vuex';
+  import * as types from 'store/mutation-types';
+  import { mapState, mapMutations, mapGetters } from 'vuex';
   import dragula from 'dragula';
   import vSwitch from 'components/v-switch';
 
@@ -26,9 +31,13 @@
       vSwitch
     },
     computed: {
-      ...mapGetters([ 'sortedServices' ])
+      ...mapGetters([ 'sortedServices' ]),
+      ...mapState([ 'isStaticStartPage' ])
     },
     methods: {
+      ...mapMutations({
+        toggleStaticPage: types.TOGGLE_STATIC_START_PAGE
+      }),
       onInput (service, key, value) {
         this.saveData(service.id, key, !service.active);
       }

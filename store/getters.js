@@ -4,12 +4,11 @@ export const activeServices = (state, getters) => {
 
 export const sortedServices = (state) => {
   if (!state.services.length) return [];
-  var serviceOrder = localStorage.getItem('serviceOrder');
+  var serviceOrder = state.serviceOrder;
   if (!serviceOrder) return state.services;
   var serviceIds = state.services.map(service => service.id);
   var sortedServices = [];
-  var order = localStorage.getItem('serviceOrder').split(',');
-  order.forEach((id) => {
+  serviceOrder.forEach((id) => {
     id = parseInt(id);
     sortedServices.push(state.services[serviceIds.indexOf(id)]);
   });

@@ -1,6 +1,6 @@
 <template>
   <div class="switch ripple--no">
-    <label class="switch--label" @click="toggleService">
+    <label class="switch--label" @click.prevent="toggleService">
       <input type="checkbox" class="switch--checkbox" :name="name" :checked="value">
       <span class="switch--lever"></span>
     </label>

@@ -4,6 +4,7 @@
 @include vue-transition($scope: '& ', $name: 'loader', $transition-field: opacity)
 
 .panel {
+  background: white;
   display: inline-block;
   position: relative;
   vertical-align: top;

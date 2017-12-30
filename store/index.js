@@ -11,6 +11,8 @@ Vue.use(Vuex);
 const state = {
   chromeStorage: [],
   services: [],
+  serviceOrder: [],
+  isStaticStartPage: !!localStorage.getItem('isStaticStartPage'),
   // Not used but needed to be able to listen to and send messages
   chromePort: chrome.runtime.connect()
 };
