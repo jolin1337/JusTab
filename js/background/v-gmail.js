@@ -55,11 +55,9 @@ export default {
     },
 
     getMails (data) {
-      let promises = [];
-
-      data.messages.forEach((message) => {
+      const promises = data.messages.map((message) => {
         let messageUrl = 'https://www.googleapis.com/gmail/v1/users/' + data.email + '/messages/' + message.id + '?&oauth_token=' + data.token;
-        promises.push(ajax('GET', messageUrl));
+        return ajax('GET', messageUrl);
       });
 
       return Promise.all(promises)

@@ -47,14 +47,11 @@ export default {
     },
 
     getEvents (token) {
-      var dateStart = new Date().toISOString();
-      var dateEnd = moment(new Date()).add(this.googleCalendarService.days, 'days').endOf('day').toISOString();
-      var promises = [];
-      var apiUrl;
-
-      this.calendarUrls.forEach((url) => {
-        apiUrl = url + '?&oauth_token=' + token + '&timeMin=' + dateStart + '&timeMax=' + dateEnd + '&orderBy=startTime&singleEvents=true';
-        promises.push(ajax('GET', apiUrl));
+      const promises = this.calendarUrls.map((url) => {
+        const dateStart = new Date().toISOString();
+        const dateEnd = moment(new Date()).add(this.googleCalendarService.days, 'days').endOf('day').toISOString();
+        const apiUrl = url + '?&oauth_token=' + token + '&timeMin=' + dateStart + '&timeMax=' + dateEnd + '&orderBy=startTime&singleEvents=true';
+        return ajax('GET', apiUrl);
       });
 
       return Promise.all(promises)
